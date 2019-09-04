@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+#Compile CombinatorialTools
+./ghdl-analysis --work=CombinatorialTools CombinatorialTools/mux.vhd CombinatorialTools/nBitsDecoderF.vhd \
+CombinatorialTools/mux_1bit.vhd CombinatorialTools/inverser.vhd CombinatorialTools/barrel_shifter_core.vhd \
+CombinatorialTools/barrel_shifter.vhd CombinatorialTools/full_adder_1b.vhd CombinatorialTools/full_adder_32b.vhd \
+CombinatorialTools/ual_32b.vhd

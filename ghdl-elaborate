@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+if [ $# -lt 1 ]
+then
+    echo "Usage $0 <filename.vhd>"
+    exit 1
+fi
+workspace="/home/$USER/"
+lib="home/$USER/lib/"
+docker run -w "$workspace" -it --rm -v "$PWD:$workspace" ghdl/ghdl:buster-gcc-7.2.0 ghdl -e --std=08 $@

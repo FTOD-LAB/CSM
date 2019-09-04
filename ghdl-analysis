@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+
+#should pass filename.vhd
+if [ $# -lt 1 ]
+then
+    echo "Usage $0 <filename.vhd>"
+    exit 1
+fi
+
+#workspace to mount in the container
+workspace="/home/$USER/"
+lib="home/$USER/lib/"
+#mount current path to workspace
+#docker run -w "$workspace" -it --rm -v "$PWD:$workspace" ghdl/ext:vunit-gtkwave ls -al 
+docker run -w "$workspace" -it --rm -v "$PWD:$workspace" ghdl/ext:vunit-gtkwave ghdl -a --std=08 $@
+#docker run -w "$workspace" -it --rm -v "$PWD:$workspace" ghdl/ghdl:buster-gcc-7.2.0 ghdl -a --std=08 $@
+

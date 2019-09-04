@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+if [ $# -ne 2 ]
+then 
+    echo "Usage $0 <entity file> <output file name>"
+    exit 1
+fi
+
+workspace="/home/$USER/"
+docker run -w "$workspace" -it --rm -v "$PWD:$workspace" ghdl/ext:vunit-gtkwave ghdl -r --std=08 "$1" --wave="work/$2.ghw"
+#docker run -w "$workspace" -it --rm -v "$PWD:$workspace" ghdl/ghdl:buster-gcc-7.2.0 ghdl -r --std=08 "$1" --wave="work/$2.ghw"
+x11docker --nxagent --workdir "$workspace" -- -v "$PWD:$workspace" -- ghdl/ext:vunit-gtkwave gtkwave "work/$2.ghw"

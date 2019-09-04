@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+#Compile SequentialTools
+./ghdl-analysis -PCombinatorialTolls --work=SequentielTools SequentielTools/register.vhd \
+SequentielTools/SRAM.vhd SequentielTools/banc_registers.vhd SequentielTools/data_memory.vhd \
